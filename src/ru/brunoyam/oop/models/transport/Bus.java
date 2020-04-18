@@ -1,5 +1,7 @@
 package ru.brunoyam.oop.models.transport;
 
+import ru.brunoyam.oop.models.Passenger;
+
 /**
  * Автобус прикрепленный к определенному маршруту.
  */
@@ -13,6 +15,11 @@ public class Bus extends Transport {
      */
     private int stopsNumber;
 
+    private int currentPassengersNumber;
+
+    private Passenger[] passengers = new Passenger[currentPassengersNumber];
+
+
     /**
      * Конструктор заполняющий все поля
      * @param hasToilet наличие туалет
@@ -20,13 +27,14 @@ public class Bus extends Transport {
      * @param travelTime время в пути
      * @param seatsNumber количество мест
      * @param cost стоимость билета
+     * @param currentPassengersNumber актуальное количество пассажиров
      */
     public Bus(boolean hasToilet, int stopsNumber,
-               int travelTime, int seatsNumber, int cost) {
-
+               int travelTime, int seatsNumber, int cost, int currentPassengersNumber) {
         super(travelTime, seatsNumber, cost);
         this.hasToilet = hasToilet;
         this.stopsNumber = stopsNumber;
+        this.currentPassengersNumber = currentPassengersNumber;
     }
 
     /**
@@ -53,6 +61,20 @@ public class Bus extends Transport {
         this.stopsNumber = stopsNumber;
     }
 
+
+    public int getCurrentPassengersNumber() {
+        return currentPassengersNumber;
+    }
+
+    public void setCurrentPassengersNumber(int currentPassengersNumber) {
+        this.currentPassengersNumber = currentPassengersNumber;
+    }
+
+    public String getType(){
+        return "Bus";
+    }
+
+
     /**
      * Возвращает текстовое представление объекта
      * @return текстовое представление объекта
@@ -63,6 +85,7 @@ public class Bus extends Transport {
         return transportDescription + "Bus{" +
                 "hasToilet=" + hasToilet +
                 ", stopsNumber=" + stopsNumber +
+                ", currentPassengersNumber=" + currentPassengersNumber +
                 '}';
     }
 }

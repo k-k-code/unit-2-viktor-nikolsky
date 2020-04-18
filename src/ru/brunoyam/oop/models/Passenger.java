@@ -13,15 +13,15 @@ public class Passenger {
     /**
      * Фамили пассажира
      */
-    String surname;
+    public String surname;
     /**
      * Отчество пассажира
      */
-    String secondName;
+    public String secondName;
     /**
      * Номер документа, удостоверяющего личность
      */
-    String docNumber;
+    public String docNumber;
 
     /**
      * Конструктор, заполняющий единственно поле.
@@ -62,6 +62,13 @@ public class Passenger {
     public String getFullName(String prefix) {
         String fullName = prefix + " " + getFullName();
         return fullName;
+    }
+
+    public String getInfo(){
+        return this.name + " " +
+                this.surname + " " +
+                this.secondName + " " +
+                this.docNumber;
     }
 
 }

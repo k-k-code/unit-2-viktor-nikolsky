@@ -18,6 +18,7 @@ public abstract class Transport {
      */
     private int cost;
 
+
     /**
      * Конструктор без аргументов
      */
@@ -84,6 +85,7 @@ public abstract class Transport {
     public void setCost(int cost) {
         this.cost = cost;
     }
+
 
     /**
      * Возвращает текстовое представление объекта
